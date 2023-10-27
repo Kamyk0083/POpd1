@@ -22,3 +22,5 @@ public class Druid extends Postac implements Walczaca, Leczaca {
         this.mana -= 20;
     }
 }
+
+// koniec
