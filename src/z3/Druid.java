@@ -1,26 +1,50 @@
 package z3;
 
-public class Druid extends Postac implements Walczaca, Leczaca {
+public class Druid implements Postac, Leczaca, Walczaca {
+    private int punktyZycia;
     private int mana;
+    private final int silaAtaku = 1;
 
     public Druid(int punktyZycia, int mana) {
-        super(punktyZycia);
+        this.punktyZycia = punktyZycia;
         this.mana = mana;
     }
 
+    @Override
+    public int getPunktyZycia() {
+        return punktyZycia;
+    }
+
+    @Override
+    public void zmienPunktyZycia(int zmiana) {
+        this.punktyZycia += zmiana;
+    }
+
+    @Override
+    public void wylecz(Postac postac) {
+        if (mana >= 10) {
+            postac.zmienPunktyZycia(200);
+            zmienMana(-10);
+        }
+    }
+
+    @Override
     public int getMana() {
         return mana;
     }
 
-    public void atakuj(Postac postac) {
-        postac.odejmijPunktyZycia(1);
-        this.mana -= 1;
+    @Override
+    public void zmienMana(int zmiana) {
+        this.mana += zmiana;
     }
 
-    public void wylecz(Postac postac) {
-        postac.dodajPunktyZycia(200);
-        this.mana -= 20;
+    @Override
+    public void atakuj(Postac postac) {
+        postac.zmienPunktyZycia(-silaAtaku);
+    }
+
+    @Override
+    public int getSila() {
+        return silaAtaku;
     }
 }
-
-// koniec

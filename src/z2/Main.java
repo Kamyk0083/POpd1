@@ -14,7 +14,7 @@ public class Main {
         assert pies.getImie().equals("Burek");
         assert ryba.getIleNog() == 0;
         assert ryba.getWiek() == 1;
-        assert pies.dajGlos().equals("Hau hau");
+        assert pies.dajGlos().equals("Hau Hau");
         assert ryba.dajGlos().equals("Bul bul");
         assert ImienneZwierze.class.isInstance(pies);
         assert !ImienneZwierze.class.isInstance(ryba);
